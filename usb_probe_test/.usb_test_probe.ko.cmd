@@ -1,0 +1,1 @@
+cmd_/home/biao/C/USB/usb_probe_test/usb_test_probe.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/biao/C/USB/usb_probe_test/usb_test_probe.ko /home/biao/C/USB/usb_probe_test/usb_test_probe.o /home/biao/C/USB/usb_probe_test/usb_test_probe.mod.o
