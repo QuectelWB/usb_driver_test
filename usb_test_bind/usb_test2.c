@@ -10,7 +10,10 @@
 #define DEVICE_ID 0x0125
 
 static struct usb_device_id usb_test_table[] = {
+#if 0
         { USB_DEVICE(VENDOR_ID, DEVICE_ID) },
+#endif
+        { USB_DEVICE_INTERFACE_NUMBER(VENDOR_ID, DEVICE_ID,4) },
         { } /* Terminating entry */
 };
 
@@ -28,7 +31,7 @@ static void usb_test_disconnect(struct usb_interface *intf)
 }
 
 static struct usb_driver usb_test_driver = {
-	.name 		= "usb_test",
+	.name 		= "usb_test_2",
 	.id_table 	= usb_test_table,
 	.probe		= usb_test_probe,
 	.disconnect	= usb_test_disconnect,
@@ -48,6 +51,6 @@ static void __exit usb_test_exit(void)
 module_init(usb_test_init);
 module_exit(usb_test_exit);
 
-MODULE_AUTHOR("BiaoWang>");
-MODULE_DESCRIPTION("BiaoWang Test");
+MODULE_AUTHOR("Bjørn Mork <bjorn@mork.no>");
+MODULE_DESCRIPTION("Qualcomm MSM Interface (QMI) WWAN driver");
 MODULE_LICENSE("GPL");
