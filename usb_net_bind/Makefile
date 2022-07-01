@@ -1,4 +1,4 @@
-obj-m += usb_test2.o
+obj-m += usbnet_bind_test.o
 
 PWD := $(shell pwd)
 

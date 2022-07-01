@@ -1,0 +1,35 @@
+
+
+[263982.084187] usb 1-2: new high-speed USB device number 14 using xhci_hcd
+[263982.279159] usb 1-2: New USB device found, idVendor=2c7c, idProduct=0125
+[263982.279165] usb 1-2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[263982.279168] usb 1-2: Product: Android
+[263982.279172] usb 1-2: Manufacturer: Android
+[263982.282212] [usb_test_probe]
+[263982.282219] [usbnet_test_bind]
+[263982.282406] usb_test_bind 1-2:1.4 wwan0: register 'usb_test_bind' at usb-0000:00:14.0-2, CDC USB Test, e2:db:7d:31:dd:a3
+[263982.307224] usbcore: registered new interface driver cdc_ether
+[263982.318068] usbcore: registered new interface driver usbserial
+[263982.318088] usbcore: registered new interface driver usbserial_generic
+[263982.318104] usbserial: USB Serial support registered for generic
+[263982.333138] usbcore: registered new interface driver option
+[263982.333159] usbserial: USB Serial support registered for GSM modem (1-port)
+[263982.333295] option 1-2:1.0: GSM modem (1-port) converter detected
+[263982.333398] usb 1-2: GSM modem (1-port) converter now attached to ttyUSB0
+[263982.333435] option 1-2:1.1: GSM modem (1-port) converter detected
+[263982.333521] usb 1-2: GSM modem (1-port) converter now attached to ttyUSB1
+[263982.333552] option 1-2:1.2: GSM modem (1-port) converter detected
+[263982.333636] usb 1-2: GSM modem (1-port) converter now attached to ttyUSB2
+[263982.333666] option 1-2:1.3: GSM modem (1-port) converter detected
+[263982.333743] usb 1-2: GSM modem (1-port) converter now attached to ttyUSB3
+[263982.333781] option 1-2:1.5: GSM modem (1-port) converter detected
+
+	port 2: Dev 14, If 0, Class=Vendor Specific Class, Driver=option, 480M
+    |__ Port 2: Dev 14, If 1, Class=Vendor Specific Class, Driver=option, 480M
+    |__ Port 2: Dev 14, If 2, Class=Vendor Specific Class, Driver=option, 480M
+    |__ Port 2: Dev 14, If 3, Class=Vendor Specific Class, Driver=option, 480M
+    |__ Port 2: Dev 14, If 4, Class=Communications, Driver=usb_test_bind, 480M
+    |__ Port 2: Dev 14, If 5, Class=CDC Data, Driver=option, 480M
+
+
+
