@@ -6,4 +6,17 @@
 
 WUSB: wireless USB
 
+一些USB硬盘不能被被识别，禁用uas 方法
+
+usb stat urb: status -32
+
+solution:
+
+	echo "options usb-storage quirks=idVendor:idProduct:u" | sudo tee /etc/modprobe.d/anyname.conf
+	sudo update-initramfs -u
+	
+	
+	gemfield@ai01:/etc/modprobe.d$ cat quirks.conf 
+	options usb-storage quirks=0x174c:0x2362:u
+
 
