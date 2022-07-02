@@ -32,4 +32,12 @@
     |__ Port 2: Dev 14, If 5, Class=CDC Data, Driver=option, 480M
 
 
+biao@ubuntu:~$ ifconfig wwan0
+wwan0     Link encap:Ethernet  HWaddr fe:6c:f2:54:16:86
+          BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
 

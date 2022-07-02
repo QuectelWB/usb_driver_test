@@ -3,3 +3,7 @@
 # driver_info 里带上一些模块信息
 
 # bind 接口是怎么被调用到的
+
+WUSB: wireless USB
+
+
