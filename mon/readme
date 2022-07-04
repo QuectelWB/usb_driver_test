@@ -1,0 +1,43 @@
+mon_text_open
+	==> rp->r.rnf_complete = mon_text_complete;
+	==> mon_reader_add(mbus, &rp->r); // 将rp->r添加到mon的总线上,当
+//
+// mon_init
+// usb_mon_register(&mon_ops_0);将该mon_ops_0作为mon监控系统中全局mon_ops的方法
+// static struct usb_mon_operations mon_ops_0
+// mon_ops_0.mon_bus_complete
+// mon_bus_complete()被执行时将调用r->rnf_complete(r->r_data, urb, status);
+// mon_complete
+// ==> mon_bus_complete
+// ==> rp->r.rnf_complete即mon_text_complete
+//
+// 来看看usb系统怎么调用
+//
+//
+// usb_hcd_giveback_urb
+// ==> usbmon_urb_complete(&hcd->self, urb, status);
+// ==> if (bus->monitored)
+//        (*mon_ops->urb_complete)(bus, urb, status); // 这里mon_ops就是上面的mon监控系统中使用到的全局量
+// 那bus->monitored是什么时候置位的呢
+// mon_text_open
+// ==> mon_reader_add(mbus, &rp->r); 表示向usb总线追加一个reader,那么当然该bus的mon就要启动了.
+// ==> mbus->u_bus->monitored = 1;
+==> mon_text_complete或mon_text_submit
+==> mon_text_event
+==> /* Collecting status makes debugging sense for submits, too */
+    ep->status = status;
+==> list_add_tail(&ep->e_link, &rp->e_list); // 将动态创建的ep添加到rp->e_list链表上
+
+/*
+将在
+sudo cat /sys/kernel/debug/usb/usbmon/2u时
+mon_text_read_u
+==> mon_text_read_wait
+==> mon_text_fetch
+==> p = rp->e_list.next;
+将添加的ep事件提取出来处理[luther.gliethttp]
+*/
+
+
+
+

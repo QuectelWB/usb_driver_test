@@ -1,4 +1,4 @@
-obj-m += usbnet_get_ep.o
+obj-m += usb_get_ep.o
 
 PWD := $(shell pwd)
 
