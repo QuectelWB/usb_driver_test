@@ -1,4 +1,4 @@
-obj-m += usb_test3.o
+obj-m += usb_test_driver_info.o
 
 PWD := $(shell pwd)
 

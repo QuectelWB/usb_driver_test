@@ -9,13 +9,9 @@
 #define VENDOR_ID 0x2C7C
 #define DEVICE_ID 0x0125
 
-MODULE_LICENSE("GPL");
-MODULE_AUTHOR("dev");
-MODULE_DESCRIPTION("eusb driver");
-
 static struct usb_device_id usb_test_table[] = {
-        {USB_DEVICE_INTERFACE_NUMBER(VENDOR_ID, DEVICE_ID, 0), .driver_info=(unsigned long)&test_info},
-	{ } /* Terminating entry */
+        { USB_DEVICE_INTERFACE_NUMBER(VENDOR_ID, DEVICE_ID,4) },
+        { } /* Terminating entry */
 };
 
 MODULE_DEVICE_TABLE(usb, usb_test_table);
@@ -52,6 +48,6 @@ static void __exit usb_test_exit(void)
 module_init(usb_test_init);
 module_exit(usb_test_exit);
 
-MODULE_AUTHOR("Bjørn Mork <bjorn@mork.no>");
-MODULE_DESCRIPTION("Qualcomm MSM Interface (QMI) WWAN driver");
+MODULE_AUTHOR("BiaoWang");
+MODULE_DESCRIPTION("USB driver test");
 MODULE_LICENSE("GPL");
