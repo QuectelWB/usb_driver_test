@@ -1,0 +1,15 @@
+/usr/local/lib/libuvc.so.0.0.6
+/usr/local/lib/libuvc.so.0
+/usr/local/lib/libuvc.so
+/usr/local/include/libuvc/libuvc.h
+/usr/local/include/libuvc/libuvc_config.h
+/usr/local/lib/libuvc.a
+/usr/local/include/libuvc/libuvc.h
+/usr/local/include/libuvc/libuvc_config.h
+/usr/local/lib/cmake/libuvc/libuvcTargets.cmake
+/usr/local/lib/cmake/libuvc/libuvcTargets-release.cmake
+/usr/local/lib/cmake/libuvc/FindLibUSB.cmake
+/usr/local/lib/cmake/libuvc/FindJpegPkg.cmake
+/usr/local/lib/cmake/libuvc/libuvcConfigVersion.cmake
+/usr/local/lib/pkgconfig/libuvc.pc
+/usr/local/lib/cmake/libuvc/libuvcConfig.cmake

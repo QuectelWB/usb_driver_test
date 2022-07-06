@@ -1,0 +1,11 @@
+libdir=/usr/local/lib
+includedir=/usr/local/include
+
+Name: libuvc
+Description: A cross-platform library for USB video devices
+URL: https://github.com/libuvc/libuvc
+Version: 0.0.6
+Libs: -L${libdir} -luvc
+Libs.private: -lusb-1.0 
+Cflags: -I${includedir}
+Requires: libusb-1.0

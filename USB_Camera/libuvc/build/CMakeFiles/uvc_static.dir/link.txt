@@ -1,0 +1,2 @@
+/usr/bin/ar qc libuvc.a  CMakeFiles/uvc_static.dir/src/ctrl.c.o CMakeFiles/uvc_static.dir/src/ctrl-gen.c.o CMakeFiles/uvc_static.dir/src/device.c.o CMakeFiles/uvc_static.dir/src/diag.c.o CMakeFiles/uvc_static.dir/src/frame.c.o CMakeFiles/uvc_static.dir/src/init.c.o CMakeFiles/uvc_static.dir/src/stream.c.o CMakeFiles/uvc_static.dir/src/misc.c.o
+/usr/bin/ranlib libuvc.a

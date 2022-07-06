@@ -7,7 +7,7 @@
 
 #ccflags-y := -Idrivers/scsi
 
-obj-m		+= uas.o
+#obj-m		+= uas.o
 obj-m	+= usb-storage.o
 
 usb-storage-y := scsiglue.o protocol.o transport.o usb.o
@@ -40,9 +40,9 @@ endif
 
 default:
 	$(MAKE) ARCH=${ARCH} CROSS_COMPILE=${CROSS_COMPILE} -C $(KDIR) M=$(PWD) modules
-	rm -rf *~ .tmp_versions modules.order Module.symvers
-	find . -type f -name "*~" -o -name "*.o"  -o -name "*.cmd" -o -name "*.mod.c" |  xargs rm -rf
+	rm -rf *~ .tmp_versions modules.order Module.symvers 
+	find . -type f -name "*~" -o -name "*.o"  -o -name "*.cmd" -o -name "*.mod.c"  -o -name "*.o.ur-safe"  |  xargs rm -rf
 
 clean:
 	rm -rf *~ .tmp_versions modules.order Module.symvers
-	find . -type f -name "*~" -o -name "*.o" -o -name "*.ko" -o -name "*.cmd" -o -name "*.mod.c" |  xargs rm -rf
+	find . -type f -name "*~" -o -name "*.o" -o -name "*.ko" -o -name "*.cmd" -o -name "*.mod.c"   -o -name "*.o.ur-safe" |  xargs rm -rf

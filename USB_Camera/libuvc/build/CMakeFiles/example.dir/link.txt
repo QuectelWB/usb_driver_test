@@ -1,0 +1,1 @@
+/usr/bin/cc  -O3 -DNDEBUG   CMakeFiles/example.dir/src/example.c.o  -o example -rdynamic libuvc.so.0.0.6 -pthread -Wl,-rpath,/home/biao/C/USB_Camera/libuvc/build 
