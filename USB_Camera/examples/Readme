@@ -1,0 +1,81 @@
+
+	# ./test
+	
+	UVC initialized
+	Device found
+	Device opened
+	DEVICE CONFIGURATION (04f2:b483/[none]) ---
+	Status: idle
+	VideoControl:
+		bcdUVC: 0x0100
+	VideoStreaming(1):
+		bEndpointAddress: 129
+		Formats:
+		UncompressedFormat(1)
+			  bits per pixel: 16
+			  GUID: 5955593200001000800000aa00389b71 (YUY2)
+			  default frame: 1
+			  aspect ratio: 0x0
+			  interlace flags: 00
+			  copy protect: 00
+				FrameDescriptor(1)
+				  capabilities: 01
+				  size: 640x480
+				  bit rate: 18432000-18432000
+				  max frame size: 614400
+				  default interval: 1/30
+				  interval[0]: 1/30
+				FrameDescriptor(2)
+				  capabilities: 01
+				  size: 160x120
+				  bit rate: 1152000-1152000
+				  max frame size: 38400
+				  default interval: 1/30
+				  interval[0]: 1/30
+				FrameDescriptor(3)
+				  capabilities: 01
+				  size: 176x144
+				  bit rate: 1520640-1520640
+				  max frame size: 50688
+				  default interval: 1/30
+				  interval[0]: 1/30
+				FrameDescriptor(4)
+				  capabilities: 01
+				  size: 320x240
+				  bit rate: 4608000-4608000
+				  max frame size: 153600
+				  default interval: 1/30
+				  interval[0]: 1/30
+				FrameDescriptor(5)
+				  capabilities: 01
+				  size: 352x288
+				  bit rate: 6082560-6082560
+				  max frame size: 202752
+				  default interval: 1/30
+				  interval[0]: 1/30
+				FrameDescriptor(6)
+				  capabilities: 01
+				  size: 640x480
+				  bit rate: 18432000-18432000
+				  max frame size: 614400
+				  default interval: 1/30
+				  interval[0]: 1/30
+	END DEVICE CONFIGURATION
+	bmHint: 0001
+	bFormatIndex: 1
+	bFrameIndex: 1
+	dwFrameInterval: 333333
+	wKeyFrameRate: 0
+	wPFrameRate: 0
+	wCompQuality: 0
+	wCompWindowSize: 0
+	wDelay: 0
+	dwMaxVideoFrameSize: 614400
+	dwMaxPayloadTransferSize: 3071
+	bInterfaceNumber: 1
+	Streaming...
+	Done streaming.
+	Device closed
+	UVC exited
+
+
