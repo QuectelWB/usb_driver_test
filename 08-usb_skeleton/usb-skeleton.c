@@ -23,8 +23,8 @@
 
 
 /* Define these values to match your devices */
-#define USB_SKEL_VENDOR_ID	0xfff0
-#define USB_SKEL_PRODUCT_ID	0xfff0
+#define USB_SKEL_VENDOR_ID	0x2c7c
+#define USB_SKEL_PRODUCT_ID	0x0125
 
 /* table of devices that work with this driver */
 static const struct usb_device_id skel_table[] = {
@@ -105,7 +105,7 @@ static int skel_open(struct inode *inode, struct file *file)
 		goto exit;
 	}
 
-	retval = usb_autopm_get_interface(interface);
+	retval = usb_autopm_get_interface(interface); // increate the PM usage  : https://www.unix.com/man-page/centos/9/usb_autopm_get_interface 
 	if (retval)
 		goto exit;
 
