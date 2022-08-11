@@ -129,7 +129,7 @@ static void usb_test_disconnect(struct usb_interface *intf)
 
 
 static struct usb_driver usb_test_driver = {
-	.name =		"usb_test_bind",
+	.name =		"usb_test_ep",
 	.id_table =	usb_test_table,
 	.probe =	usb_test_probe,
 	.disconnect =	usb_test_disconnect,
