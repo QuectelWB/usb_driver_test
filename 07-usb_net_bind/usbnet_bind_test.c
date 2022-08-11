@@ -1,6 +1,10 @@
 #include <linux/module.h>    
 #include <linux/kernel.h> 
 #include <linux/init.h> 
+#include <linux/version.h>
+#if LINUX_VERSION_CODE > KERNEL_VERSION(4,15,0)
+#include <linux/mii.h>
+#endif
 #include <linux/usb.h>
 #include <linux/usb/cdc.h>
 #include <linux/netdevice.h>
