@@ -12,3 +12,4 @@ clean:
 	@for dir in $(SUBDIRS);do\
                 make -C $$dir clean;\
         done
+	 find -name ".cache.mk" | xargs /bin/rm -rf "{}"
