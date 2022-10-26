@@ -1665,11 +1665,12 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
 	int				status;
 	const char			*name;
 	struct usb_driver 	*driver = to_usb_driver(udev->dev.driver);
-    
-   	 struct usb_interface_descriptor *iface_desc;
-    	__u16 idProduct,idVendor;
 
-    	iface_desc = &udev->cur_altsetting->desc;
+    // add by BW
+   	struct usb_interface_descriptor *iface_desc;
+    __u16 idProduct,idVendor;
+
+    iface_desc = &udev->cur_altsetting->desc;
 	
 	printk("%s\n",__func__);
     
