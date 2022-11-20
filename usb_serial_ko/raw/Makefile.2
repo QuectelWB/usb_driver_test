@@ -1,0 +1,7 @@
+
+obj-$(CONFIG_USB_SERIAL)			+= usbserial.o
+
+usbserial-y := usb-serial.o generic.o bus.o
+
+obj-$(CONFIG_USB_SERIAL_OPTION)			+= option.o
+obj-$(CONFIG_USB_SERIAL_WWAN)			+= usb_wwan.o
