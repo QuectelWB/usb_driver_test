@@ -1733,14 +1733,21 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
     idVendor = xdev->descriptor.idVendor;
     idProduct = xdev->descriptor.idProduct;
 
-	printk("vid pid : %x,%x",(int)idVendor,(int)idProduct);
+    printk("vid pid : %x,%x",(int)idVendor,(int)idProduct);
+
     if(idVendor == cpu_to_le16(0x2C7C))
     {
         if(idProduct == cpu_to_le16(0x06005) )
+		{
+		printk("Quectel 1\rn");
         	strcpy (net->name, "eth%d");
+		}
+	printk("Quectel but not the EC200A\rn");
+        strcpy (net->name, "usb%d");
     }
     else
     {
+	printk("Quectel 2\rn");
         strcpy (net->name, "usb%d");
     }
         memcpy (net->dev_addr, node_id, sizeof node_id);
@@ -1752,10 +1759,13 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
 	net->min_mtu = 0;
 	net->max_mtu = ETH_MAX_MTU;
 
+	printk("Quectel 3\rn");
 	net->netdev_ops = &usbnet_netdev_ops;
 	net->watchdog_timeo = TX_TIMEOUT_JIFFIES;
 	net->ethtool_ops = &usbnet_ethtool_ops;
+	printk("Quectel 4\rn");
 
+	printk("%s -- %s -- %s 1\n",__func__,__DATE__,__TIME__);
 	// allow device-specific bind/init procedures
 	// NOTE net->name still not usable ...
 	if (info->bind) {
@@ -1763,13 +1773,25 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
 		if (status < 0)
 			goto out1;
 
+	printk("%s -- %s -- %s 2\n",__func__,__DATE__,__TIME__);
+	// allow device-specific bind/init procedures
 		// heuristic:  "usb%d" for links we know are two-host,
 		// else "eth%d" when there's reasonable doubt.  userspace
 		// can rename the link if it knows better.
-		if ((dev->driver_info->flags & FLAG_ETHER) != 0 &&
-		    ((dev->driver_info->flags & FLAG_POINTTOPOINT) == 0 ||
-		     (net->dev_addr [0] & 0x02) == 0))
-			strcpy (net->name, "eth%d");
+		if ((dev->driver_info->flags & FLAG_ETHER) != 0 )
+		  {
+		   if ((dev->driver_info->flags & FLAG_POINTTOPOINT) == 0)
+			{
+				printk("%s FLAG_POINTTOPOINT\n",__func__);
+				strcpy (net->name, "eth%d");
+			}
+
+		    if((net->dev_addr [0] & 0x02) == 0)
+			{
+				printk("%s dev_dddr equals 0x02\n",__func__);
+				strcpy (net->name, "eth%d");
+			}
+		   }
 		/* WLAN devices should always be named "wlan%d" */
 		if ((dev->driver_info->flags & FLAG_WLAN) != 0)
 			strcpy(net->name, "wlan%d");
@@ -1785,8 +1807,14 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
 		if (net->mtu > (dev->hard_mtu - net->hard_header_len))
 			net->mtu = dev->hard_mtu - net->hard_header_len;
 	} else if (!info->in || !info->out)
+	{
+		printk("%s -- %s -- %s 3\n",__func__,__DATE__,__TIME__);
+	// allow device-specific bind/init procedures
 		status = usbnet_get_endpoints (dev, udev);
+	}
 	else {
+	printk("%s -- %s -- %s 4\n",__func__,__DATE__,__TIME__);
+	// allow device-specific bind/init procedures
 		dev->in = usb_rcvbulkpipe (xdev, info->in);
 		dev->out = usb_sndbulkpipe (xdev, info->out);
 		if (!(info->flags & FLAG_NO_SETINT))
@@ -1797,6 +1825,7 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
 			status = 0;
 
 	}
+	printk("%s -- %s -- %s  net name : %s 5\n",__func__,__DATE__,__TIME__,net->name);
 	if (status >= 0 && dev->status)
 		status = init_status (dev, udev);
 	if (status < 0)
@@ -1810,6 +1839,7 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
 	if (ether_addr_equal(net->dev_addr, node_id))
 		net->addr_assign_type = NET_ADDR_RANDOM;
 
+	printk("%s -- %s -- %s  net name : %s 6\n",__func__,__DATE__,__TIME__,net->name);
 	if ((dev->driver_info->flags & FLAG_WLAN) != 0)
 		SET_NETDEV_DEVTYPE(net, &wlan_type);
 	if ((dev->driver_info->flags & FLAG_WWAN) != 0)
@@ -1818,6 +1848,7 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
 	/* initialize max rx_qlen and tx_qlen */
 	usbnet_update_max_qlen(dev);
 
+	printk("%s -- %s -- %s  net name : %s 7\n",__func__,__DATE__,__TIME__,net->name);
 	if (dev->can_dma_sg && !(info->flags & FLAG_SEND_ZLP) &&
 		!(info->flags & FLAG_MULTI_PACKET)) {
 		dev->padding_pkt = kzalloc(1, GFP_KERNEL);
@@ -1844,7 +1875,8 @@ usbnet_probe (struct usb_interface *udev, const struct usb_device_id *prod)
 
 	if (dev->driver_info->flags & FLAG_LINK_INTR)
 		usbnet_link_change(dev, 0, 0);
-
+	
+	printk("%s %s\r\n",__func__,net->name);
 	return 0;
 
 out5:

@@ -16,6 +16,7 @@ ARCH=i386
 endif
 endif
 endif
+EXTRA_CFLAGS +=-Wno-date-time
 
 ifneq ($(findstring &,${PWD}),)
 $(warning "${PWD}")

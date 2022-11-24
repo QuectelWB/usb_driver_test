@@ -1,0 +1,20 @@
+[179360.257917] usb 3-8: new high-speed USB device number 26 using xhci_hcd
+[179360.407219] usb 3-8: New USB device found, idVendor=2c7c, idProduct=6004
+[179360.407220] usb 3-8: New USB device strings: Mfr=2, Product=3, SerialNumber=4
+[179360.407221] usb 3-8: Product: EG060V-EAAA
+[179360.407221] usb 3-8: Manufacturer: Quectel
+[179360.407222] usb 3-8: SerialNumber: 123456789ABCD
+[179360.407877] usbnet_probe
+[179360.407882] vid pid : 2c7c,6004
+[179360.407883] usbnet_probe -- Nov 23 2022 -- 14:58:35 1
+[179360.424970] cdc_ncm 3-8:1.0: MAC-Address: 16:f5:f4:e5:7e:16
+[179360.424972] usbnet_probe -- Nov 23 2022 -- 14:58:35 2
+[179360.425091] cdc_ncm 3-8:1.0 eth1: register 'cdc_ncm' at usb-0000:00:14.0-8, CDC NCM, 16:f5:f4:e5:7e:16
+[179360.425756] cdc_acm 3-8:1.4: ttyACM0: USB ACM device
+[179360.451153] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+[179360.451224] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+[179360.472552] cdc_ncm_speed_change 0
+[179360.472553] cdc_ncm_speed_change 1
+[179360.472555] cdc_ncm 3-8:1.0 eth1: 425 mbit/s downlink 425 mbit/s uplink
+[179360.504564] cdc_ncm_status USB_CDC_NOTIFY_NETWORK_CONNECTION
+[179360.504584] IPv6: ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready
